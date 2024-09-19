@@ -55,9 +55,8 @@ class IsolateExample extends StatelessWidget {
               children: <Widget>[
                 ElevatedButton(
                   child: const Text('Start with compute'),
-                  onPressed: () async {
-                    final sum =
-                        await compute(computeProductWithCompute, largeNumber);
+                  onPressed: () {
+                    final sum = compute(computeProductWithCompute, largeNumber);
                     print('Sum using compute: $sum');
                   },
                 ),
@@ -70,8 +69,8 @@ class IsolateExample extends StatelessWidget {
               children: <Widget>[
                 ElevatedButton(
                   child: const Text('Start without Isolate'),
-                  onPressed: () {
-                    final sum = computeProductWithCompute(largeNumber);
+                  onPressed: () async {
+                    final sum = await computeProductWithoutIsolate(largeNumber);
                     print('Sum without Isolate: $sum');
                   },
                 ),
@@ -96,7 +95,7 @@ class IsolateExample extends StatelessWidget {
   }
 
 // Function that runs on the main thread without an isolate
-  BigInt computeProductWithoutIsolate(int value) {
+  Future<BigInt> computeProductWithoutIsolate(int value) async {
     BigInt product = BigInt.one;
     for (var i = 1; i <= value; i++) {
       product *= BigInt.from(i);
