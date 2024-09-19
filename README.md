@@ -1,16 +1,23 @@
-# flutter_isolate_example
+# Isolate Example in Flutter
 
-A new Flutter project.
+This project demonstrates the use of `Isolate` in Flutter to perform heavy computations without blocking the main thread, ensuring a smooth and responsive UI.
+
+## Features
+
+- **Start with Isolate:** Runs a computationally expensive task on a separate isolate.
+- **Start with compute:** Utilizes Flutter's `compute()` function to run the task on a background thread.
+- **Start without Isolate:** Executes the task directly on the main thread, showcasing the impact on UI performance.
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+1. Clone the repository.
+2. Run the app on a device or emulator.
+3. Press the buttons to see the different approaches in action.
 
-A few resources to get you started if this is your first Flutter project:
+### Code Explanation
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+- `computeProductWithIsolate`: Calculates a large product using an isolate.
+- `computeProductWithoutIsolate`: Calculates the product directly on the main thread.
+- `computeProductWithCompute`: Uses `compute()` to run the calculation in the background.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+
